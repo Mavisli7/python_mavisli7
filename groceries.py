@@ -21,16 +21,16 @@ products = [
     {"id":19, "name": "Gluten Free Quinoa Three Cheese & Mushroom Blend", "department": "dry goods pasta", "aisle": "grains rice dried goods", "price": 3.99},
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
-
+import code
+import operator
 print("--------------")
+print("THERE ARE" + str(len(products))+ "PRODUCTS: ")
 
-name=[]
+products= sorted(products, key= operator.itemgetter("name"))
+
 for product in products:
-    name.append(product['name'])
-product_name=sorted(name)
-print("THERE ARE", len(products),"PRODUCTS: ")
-for item in product_name:
-    print("+ ",item,"( "+ "$", str(product['price']) +" )")
+    price_usd = ' (${0:.2f})'.format(product["price"])
+    print(" + " + product["name"] + price_usd)
 
 print("--------------")
 
